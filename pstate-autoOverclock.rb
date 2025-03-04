@@ -1,8 +1,4 @@
 #! /usr/bin/ruby
-# Will monitor a specified file specified by it's unix path as command line arguments --temp-file, which has values in millicelsius and in case it reaches exceeds a certain threshold temperature (specified by argument --crit-temp, value in millicelsius), it'll reduce the integer value in another file (specified by command line argument --perf-file) which is also specified as command line argument as a unix path. The values in the performance file ranges from 0 to 100 and must be a whole number. The program will take another input argument '--correlation' which specifies by how much to reduce the value in --perf-file in case it exceeds the --crit-temp; for each celsius increase over the --crit-temp, the value in the --perf-file will be reduced by --correlation amount. --correlation takes in values as floating point value (i.e. it can be less than 0). If the --temp-file's value is found less than --crit-temp, the difference between the --crit-temp and the current temperature will be taken and for each celsius difference, the value in the --perf-file will be increased by --correlation. The program will run continuously, monitoring --temp-file within an interval as specified by the commandline switch -t and taking the specified action. This is written for Linux platform.
-# -t default value is 5
-# --crit-temp default value is 80
-# --correlation default value is 0.5.
 require 'optparse'
 
 # Initialize the global hash for input swithces
